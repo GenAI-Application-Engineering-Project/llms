@@ -1,0 +1,18 @@
+
+// .vscode/launch.json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "website summarizer",
+      "type": "debugpy",
+      "request": "launch",
+      "program": "${workspaceFolder}/webpage_summarizer/main.py",
+      "console": "integratedTerminal",
+      "env": {
+        "PYTHONPATH": "${workspaceFolder}"
+      }
+    }
+  ]
+}
+
