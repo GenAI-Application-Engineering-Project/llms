@@ -15,6 +15,7 @@
     "mypy",
     "nohup",
     "nosetests",
+    "ollama",
     "pipenv",
     "Pipfile",
     "Projekti",
