@@ -9,6 +9,7 @@
     "htmlcov",
     "ipynb",
     "ipython",
+    "jupyterlab",
     "KHTML",
     "llms",
     "mkdocs",
