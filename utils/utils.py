@@ -25,3 +25,10 @@ def load_env_variables():
         )
     else:
         print("API key found and looks good so far!")
+
+
+def create_message(system_prompt: str, user_prompt: str):
+    return [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt}
+    ]

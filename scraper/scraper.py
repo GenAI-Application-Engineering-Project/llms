@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 import logging
+from typing import List
 
 from bs4 import BeautifulSoup
 import requests
@@ -11,6 +13,14 @@ DEFAULT_HEADERS = {
         "Chrome/117.0.0.0 Safari/537.36"
     )
 }
+
+
+@dataclass
+class Website:
+    url: str
+    title: str
+    body: str
+    links: str
 
 
 class Scraper(ABC):
@@ -76,10 +86,23 @@ class SoupScraper(Scraper):
 
         return self.soup.body.get_text(separator="\n", strip=True)
 
+    def get_links(self) -> List[str]:
+        links = [link.get('href') for link in self.soup.find_all('a')]
+        return [link for link in links if link]
+
     def to_dict(self) -> dict:
         """Return a dictionary representation of the scraped content."""
         return {
             "url": self.get_url(),
             "title": self.get_title(),
-            "body": self.get_body()
+            "body": self.get_body(),
+            "links": self.get_links()
         }
+
+    def get_website_content(self) -> Website:
+        return Website(
+            url=self.get_url(),
+            title=self.get_title(),
+            body=self.get_body(),
+            links=self.get_links()
+        )
