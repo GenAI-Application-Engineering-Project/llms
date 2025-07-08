@@ -4,3 +4,6 @@ requests
 openai
 ollama
 jupyterlab
+anthropic
+google-generativeai
+ipywidgets
