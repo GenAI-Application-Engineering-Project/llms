@@ -7,3 +7,4 @@ jupyterlab
 anthropic
 google-generativeai
 ipywidgets
+gradio
