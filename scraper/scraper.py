@@ -39,6 +39,12 @@ class Scraper(ABC):
         """Extract the main body text of the page."""
         pass
 
+    def get_contents(self) -> str:
+        return (
+            f"Webpage Title:\n{self.get_title()}"
+            f"\nWebpage Contents:\n{self.get_body()}\n\n"
+        )
+
 
 class SoupScraper(Scraper):
     def __init__(self, url: str, headers: dict = None):
